@@ -1,5 +1,7 @@
 package com.example.hbmsserver.model;
 
+import com.example.hbmsserver.dto.UserRegistrationInfoDto;
+
 import javax.persistence.*;
 import java.util.Set;
 
@@ -29,6 +31,13 @@ public class User {
     private Set<Category> category;
 
     public User() {
+    }
+
+    public User(UserRegistrationInfoDto userInfo) {
+        this.name = userInfo.getName();
+        this.email = userInfo.getEmail();
+        this.password = userInfo.getPassword();
+        userRole = new Role(2L);
     }
 
     public Role getUserRole() {

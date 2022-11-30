@@ -1,2 +1,4 @@
-package com.example.hbmsserver.security;public class WebSecurityConfig {
+package com.example.hbmsserver.security;
+
+public class WebSecurityConfig {
 }

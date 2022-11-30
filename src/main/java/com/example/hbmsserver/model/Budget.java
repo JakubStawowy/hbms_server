@@ -1,5 +1,7 @@
 package com.example.hbmsserver.model;
 
+import com.example.hbmsserver.dto.PostBudgetDetails;
+
 import javax.persistence.*;
 
 @Entity
@@ -31,6 +33,18 @@ public class Budget {
         this.value = value;
         this.categoryType = categoryType;
         this.date = date;
+    }
+
+    public Budget(PostBudgetDetails budgetDetails, Long userId) {
+        this.userId = userId;
+        this.value = budgetDetails.getValue();
+        this.categoryType = new CategoryType(
+                budgetDetails.getId(),
+                budgetDetails.getName(),
+                budgetDetails.getIcon(),
+                budgetDetails.getColor()
+        );
+        this.date = budgetDetails.getDate();
     }
 
     public Long getId() {

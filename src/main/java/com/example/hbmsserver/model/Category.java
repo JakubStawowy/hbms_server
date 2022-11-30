@@ -1,5 +1,8 @@
 package com.example.hbmsserver.model;
 
+import com.example.hbmsserver.dto.CategoryInfoDto;
+import com.example.hbmsserver.dto.PostCategoryDetails;
+
 import javax.persistence.*;
 import java.util.Set;
 
@@ -32,6 +35,17 @@ public class Category {
         this.user = user;
         this.categoryType = categoryType;
         this.date = date;
+    }
+
+    public Category(PostCategoryDetails categoryDetails, User user) {
+        this.user = user;
+        categoryType = new CategoryType(
+                categoryDetails.getId(),
+                categoryDetails.getName(),
+                categoryDetails.getIcon(),
+                categoryDetails.getColor()
+        );
+        date = categoryDetails.getDate();
     }
 
     public Long getId() {

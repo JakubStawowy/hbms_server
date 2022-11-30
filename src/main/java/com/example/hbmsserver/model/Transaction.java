@@ -1,5 +1,7 @@
 package com.example.hbmsserver.model;
 
+import com.example.hbmsserver.dto.TransactionInfoDto;
+
 import javax.persistence.*;
 
 @Entity
@@ -31,6 +33,13 @@ public class Transaction {
         this.name = name;
         this.value = value;
         this.date = date;
+    }
+
+    public Transaction(TransactionInfoDto transactionInfoDto, Category category) {
+        this.category = category;
+        this.name = transactionInfoDto.getName();
+        this.value = transactionInfoDto.getValue();
+        this.date = transactionInfoDto.getDay();
     }
 
     public Long getId() {
