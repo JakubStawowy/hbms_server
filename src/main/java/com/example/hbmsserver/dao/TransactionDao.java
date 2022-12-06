@@ -12,10 +12,10 @@ import java.util.List;
 @Repository
 public interface TransactionDao extends JpaRepository<Transaction, Long> {
 
-    @Query("select t from Transaction t where t.categoryId = :categoryId")
+    @Query("select t from Transaction t where t.category = :categoryId")
     Collection<Transaction> findAll(Long categoryId);
 
-    @Query("select new CategoryDetails(t.categoryId, count(t), sum(t.value))"
-            + "from Transaction as t group by t.categoryId")
+    @Query("select new com.example.hbmsserver.model.CategoryDetails(t.category.id, count(t), sum(t.value))"
+            + "from Transaction as t group by t.category")
     List<CategoryDetails> getCategoriesDetails();
 }

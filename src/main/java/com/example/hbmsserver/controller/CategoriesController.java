@@ -8,14 +8,11 @@ import com.example.hbmsserver.dto.CategoryInfoDto;
 import com.example.hbmsserver.dto.CategoryTypesDto;
 import com.example.hbmsserver.dto.PostCategoryDetails;
 import com.example.hbmsserver.model.Category;
-import com.example.hbmsserver.model.CategoryDetails;
-import com.example.hbmsserver.model.CategoryType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 

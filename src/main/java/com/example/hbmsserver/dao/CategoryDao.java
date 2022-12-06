@@ -10,7 +10,7 @@ import java.util.Optional;
 
 @Repository
 public interface CategoryDao extends JpaRepository<Category, Long> {
-    @Query("select t from Category t where t.userId = :userId and t.date = :date")
+    @Query("select t from Category t where t.user = :userId and t.date = :date")
     Collection<Category> findAll(Long userId, String date);
 
     @Override
